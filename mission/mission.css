@@ -45,3 +45,14 @@ main {
     height: auto;
     margin: 10px;
 }
+
+.dark-mode {
+    background-color: #3e3e42;
+    color: white;
+}
+
+#mode-switcher {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
