@@ -7,7 +7,7 @@ modeSwitcher.addEventListener("change", () => {
     body.classList.toggle("dark-mode");
 
     if (body.classList.contains("dark-mode")) {
-        logo.src = "";
+        logo.src = "./images/byui-logo-white.png";
     } else {
         logo.src = "./images/byui-logo-blue.webp";
     }
