@@ -1,10 +1,32 @@
+header, footer {
+    background-color: lightblue;
+}
+
+nav {
+    display: none;
+}
+
+.menu-btn {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    margin: 5px 0;
+}
+
 .picture-grid {
     display: grid;
     grid-template-columns: 1fr;
 }
 
 .picture-box {
-    max-width: 20rem;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .picture-grid img {
@@ -14,6 +36,14 @@
 @media screen and (min-width: 700px) {
     .picture-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .menu-btn {
+        display: none;
+    }
+
+    nav {
+        display: block;
     }
 }
 
