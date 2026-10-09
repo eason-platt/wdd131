@@ -31,13 +31,26 @@ section {
     border: 1px solid #ccc;
 }
 
+nav a:hover {
+    text-decoration: none;
+    color: #616061;
+}
+
 nav {
     display: none;
+}
+
+nav.open {
+    display: block;
 }
 
 nav a {
     padding: 20px;
     color: black;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    border-top: 1px solid grey;
 }
 
 nav a:hover {
@@ -45,11 +58,7 @@ nav a:hover {
     color: #616061;
 }
 
-.active {
-    display: block;
-}
-
-.menu-btn {
+#menu-btn {
     cursor: pointer;
     border: none;
     background-color: transparent;
@@ -60,25 +69,36 @@ nav a:hover {
     height: 4px;
     background-color: black;
     margin: 5px 0;
+    transition: 0.4s;
 }
+
+.change .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+}
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+}
+
 
 footer {
     text-align: center;
 }
 
 @media screen and (min-width: 700px) {
-    .menu-btn {
+    #menu-btn {
         display: none;
     }
 
-    nav a {
-        display: block;
-    }
-
-    nav {
+    nav, nav.open {
         display: flex;
         flex-direction: row;
         justify-content: right;
+    }
+
+    nav a {
+        border-top: none;
     }
 
     main {
