@@ -1,0 +1,72 @@
+header h1 {
+    border-bottom: 2px solid orange;
+    text-align: center;
+}
+
+nav {
+    border-bottom: 2px solid orange;
+    margin-bottom: 45px;
+    padding-bottom: 15px;
+    display: flex;
+    gap: 40px;
+    justify-content: right;
+    font-family: sans-serif;
+    padding-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    gap: 10px;
+    color: darkRed;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+main h2 {
+    color: darkred;
+}
+
+.rating {
+    text-align: right;
+    border-top: 2px solid orange;
+    padding-right: 30px;
+    font-family: sans-serif;
+}
+
+.book {
+    padding: 20px;
+}
+
+.book img{
+    display: block;
+    margin-left: 90px;
+}
+
+footer {
+    border-top: 2px solid orange;
+    text-align: center;
+}
+
+
+@media (min-width: 600px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: none;
+    }
+
+    .book {
+        grid-column: 2/3;
+    }
+
+    .rating {
+        border-top: none;
+        border-right: 2px solid orange;
+        grid-column: 1/2;
+        padding: 20px;
+        margin: 20px;
+    }
+}
