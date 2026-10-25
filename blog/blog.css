@@ -52,7 +52,7 @@ footer {
 
 
 @media (min-width: 600px) {
-    main {
+    .post {
         display: grid;
         grid-template-columns: 1fr 2fr;
         grid-template-rows: none;
