@@ -4,7 +4,7 @@ const studentCreds = document.getElementById("studentCreds");
 const guestCreds = document.getElementById("guestCreds");
 const output = document.getElementById("output");
 
-const correctAccessCode = ""
+const correctAccessCode = "EVENT131"
 
 function isPastDate(value) {
     const today = new Date();
@@ -27,10 +27,11 @@ form.addEventListener("submit", (e) => {
     const lastName = form.lastName.value.trim();
     const email = form.email.value.trim();
     const ticketType = form.ticketType.value.trim();
+    const eventDate = form.eventDate.value;
     const studentID = form.elements.namedItem("studentID").value.trim();
     const accessCode = form.elements.namedItem("accessCode").value.trim();
 
-    if (firstName || lastName || email === "") {
+    if (!firstName || !lastName || !email) {
         output.textContent = "Please fully complete the form.";
         return;
     }
@@ -40,6 +41,19 @@ form.addEventListener("submit", (e) => {
         return;
     }
 
-    if (ticketType === "guest" && guestCreds.value !==) {}
+    if (ticketType === "guest" && accessCode !== correctAccessCode) {
+        output.textContent = "Incorrect access code.";
+        return;
+    }
 
+    if (isPastDate(eventDate)) {
+        output.textContent = "Please choose a later date.";
+        return;
+    }
+
+    output.innerHTML = `
+    <h2>Ticket Created</h2>
+    <p>${firstName} ${lastName}</p>
+    <p>${ticketType}</p>
+    <p>${eventDate}</p>`
 })
