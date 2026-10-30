@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background:  #cfe0cf;
+    background:  #bcceda;
     margin: 0;
 }
 
@@ -36,7 +36,7 @@ button {
 }
 
 button {
-    background: #cfe0cf;
+    background: #bcceda;
     transition: background 0.5s ease;
     margin-top: 10px;
 }
@@ -46,7 +46,7 @@ button {
 }
 
 button:hover {
-    background: #dcead9;
+    background: rgb(188 206 218 / 0.55);
 }
 
 #notesContainer[hidden] {
