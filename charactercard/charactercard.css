@@ -25,6 +25,10 @@ body {
     background-color: #5d747b;
 }
 
+.character-stats {
+    color: white;
+}
+
 .buttons {
     display: flex;
     flex-direction: row;
