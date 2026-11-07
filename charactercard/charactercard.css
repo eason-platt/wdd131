@@ -27,6 +27,12 @@ body {
 
 .character-stats {
     color: white;
+    margin: 10px 15px 7px 35px;
+    text-align: left;
+}
+
+.character-stats div {
+    padding: 10px;
 }
 
 .buttons {

@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Character Card</title>
     <link rel="stylesheet" href="charactercard.css">
     <script type="module" src="charactercard.js" defer></script>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ram Altman">
+    <meta property="og:description" content="Slop card">
+    <meta property="og:url" content="https://https://eason-platt.github.io/wdd131/charactercard/index.html">
 </head>
 <body>
 <main>
     <div class="character-card">
-        <!--<img class="character-image" src="images/sam-altman.webp" alt="ram altman">-->
+        <img class="character-image" src="images/sam-altman.webp" alt="ram altman">
         <h2 class="character-name"></h2>
         <section class="character-stats">
-            <p class="character-class"></p>
-            <p class="level"></p>
-            <p class="HP"></p>
+            <div><strong>Class: </strong><span class="character-class"></span></div>
+            <div><strong>Level: </strong><span class="level"></span></div>
+            <div><strong>HP: </strong><span class="HP"></span></div>
         </section>
         <section class="buttons">
             <button class="attack-button">Attacked</button>

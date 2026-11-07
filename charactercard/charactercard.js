@@ -20,7 +20,7 @@ class Character {
 
 let samAltman = new Character(
     "Sam Altman",
-    "Comically Evil Ram-Eating Billionaire",
+    "Comically Evil Billionaire",
     1,
     100
 );
