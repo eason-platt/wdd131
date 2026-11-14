@@ -47,6 +47,11 @@ main {
     margin-left: 10px;
 }
 
+hr {
+    width: 100%;
+    margin: 10px;
+}
+
 .recipe-container {
     display: flex;
     border: 3px solid black;
@@ -67,6 +72,8 @@ main {
 
 .recipe-details h2 {
     font-family: "Amatic SC", sans-serif;
+    font-size: 2rem;
+    color: cornflowerblue;
 }
 
 .recipe-type {
@@ -79,13 +86,29 @@ main {
 
 footer {
     display: flex;
-}
-
-.socials {
-    justify-self: flex-end;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+    margin: 20px;
 }
 
 footer img {
     height: 2rem;
     width: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .recipe-container {
+        flex-direction: column;
+    }
+
+    .recipe-description {
+        display: none;
+    }
+
+    footer {
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
