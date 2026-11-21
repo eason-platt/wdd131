@@ -6,7 +6,7 @@ const recipes = [
         cookTime: '30 Min',
         datePublished: '2016-10-16',
         tags: ['Waffles', 'Sweet Potato', 'Side'],
-        description: 'Savory waffles made with Sweet potato with a hint of Ginger',
+        description: 'Savory waffles made with Sweet potato and a hint of Ginger',
         image: './images/sweet-potato-waffle-md.jpg',
         recipeIngredient: [
             '2 separated eggs',
@@ -284,34 +284,32 @@ const recipeSection = document.getElementById("recipe-section");
 
 renderRecipe(recipes[0]);
 
+const searchButton = document.querySelector(".search-button-container");
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("searchbar");
+
+searchButton.addEventListener("submit", (e) => {
+    e.preventDefault();
+    recipeSection.replaceChildren();
+
+    searchRecipes(recipes, searchInput.value.trim().toLowerCase());
+})
+
 searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
     recipeSection.replaceChildren();
 
-    let searchText = searchInput.value.trim().toLowerCase();
-
-    const matchingRecipes = recipes.filter(recipe => {
-        return recipe.name.includes(searchText.toLowerCase());
-    });
-
-    if (!matchingRecipes) {
-        return;
-    }
-
-    for (let recipe of matchingRecipes) {
-        renderRecipe(recipe);
-    }
+    searchRecipes(recipes, searchInput.value.trim().toLowerCase());
 });
 
 function renderRecipe(recipe) {
     const recipeContainer = document.createElement("div");
-    recipeContainer.classList.add(".recipe-container");
+    recipeContainer.classList.add("recipe-container");
     const recipeImageContainer = document.createElement("div");
-    recipeImageContainer.classList.add("recipe-image");
+    recipeImageContainer.classList.add("recipe-image-container");
 
     const recipeImage = document.createElement("img");
+    recipeImage.classList.add("recipe-image");
     recipeImage.src = recipe.image;
 
     recipeImageContainer.append(recipeImage);
@@ -320,11 +318,12 @@ function renderRecipe(recipe) {
     recipeDetails.classList.add("recipe-details");
 
     const recipeTags = document.createElement("div");
-    recipeTags.classList.add("recipe-tags");
+    recipeTags.classList.add("recipe-tags-container");
 
     for (let tag of recipe.tags) {
         const tagHtml = document.createElement("p");
         tagHtml.textContent = tag;
+        tagHtml.classList.add("tag");
         recipeTags.append(tagHtml);
     }
 
@@ -354,4 +353,26 @@ function renderRecipe(recipe) {
     recipeContainer.append(recipeDetails);
 
     recipeSection.append(recipeContainer);
+}
+
+function searchRecipes(recipes, searchInput) {
+
+    const matchingRecipes = recipes.filter(recipe => {
+        return recipe.name.toLowerCase().includes(searchInput)
+            || recipe.tags.some(tag => tag.toLowerCase().includes(searchInput));
+    });
+
+    if (matchingRecipes.length === 0) {
+        const searchErrorContainer = document.createElement("div");
+        searchErrorContainer.classList.add("recipe-container");
+        const searchError = document.createElement("p");
+        searchError.textContent = `Your search for ${searchInput} was not found.`;
+        searchErrorContainer.append(searchError);
+        recipeSection.append(searchError);
+        return;
+    }
+
+    for (let recipe of matchingRecipes) {
+        renderRecipe(recipe);
+    }
 }
