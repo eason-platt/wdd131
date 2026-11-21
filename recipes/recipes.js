@@ -333,7 +333,7 @@ function renderRecipe(recipe) {
     const recipeRating = document.createElement("span");
     recipeRating.setAttribute("role", "img");
 
-    for (let i = 0; i <= recipe.rating; i++) {
+    for (let i = 0; i < recipe.rating; i++) {
         const starHtml = document.createElement("span");
         starHtml.classList.add("icon-star");
         starHtml.textContent = "⭐";
