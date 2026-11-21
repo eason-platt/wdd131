@@ -282,7 +282,7 @@ const recipes = [
 
 const recipeSection = document.getElementById("recipe-section");
 
-renderRecipe(recipes[0]);
+renderRecipe(recipes[Math.floor(Math.random() * recipes.length)]);
 
 const searchButton = document.querySelector(".search-button-container");
 const searchForm = document.getElementById("search-form");
